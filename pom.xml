@@ -394,7 +394,8 @@
                     </execution>
                 </executions>
             </plugin>
-
+	   
+	    
             <!--Specify the encoding for copying resources-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -543,6 +544,29 @@
                 </dependency>
             </dependencies>
         </profile>
+	<profile>
+        <id>sonar</id>
+        <properties>
+            <sonar.host.url>http://74.235.231.178:9000/</sonar.host.url>
+        </properties>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.9.1.2184</version>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>sonar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
    </profiles>
 
     <repositories>
